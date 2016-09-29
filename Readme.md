@@ -1,11 +1,10 @@
 **Module developer's guide to FreeCAD source code**
 
-*for FreeCAD version 0.16-dev*
-
 by Qingfeng Xia 
 http://www.iesensor.com
-2015-09-18
-version 0.1
+
+- 2015-09-18 version 0.1 *for FreeCAD version 0.16-dev*
+- 2016-09-18 version 0.2 *for FreeCAD version 0.17-dev*
 
 ## License of this book
 

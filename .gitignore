@@ -1,0 +1,11 @@
+backup/*
+backup/*.*
+reference/*
+
+build/*
+
+#my persoinal notes in txt
+*.txt
+chapters/*.pyd
+chapters/*.pyc
+chapters/__pycache__
