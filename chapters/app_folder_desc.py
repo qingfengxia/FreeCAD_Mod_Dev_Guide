@@ -80,6 +80,15 @@ DocumentObjectGroupPy.xml       DocumentPy.xml
 Expression.h        ExpressionParser.tab.h  PropertyExpressionEngine.cpp
 ExpressionParser.l  ExpressionParser.y      PropertyExpressionEngine.h] """),
 #
+("Extension framework",),
+('Extension.h', "extend function of object other than inheritance",
+""" [DocumentObjectExtension.cpp       GeoFeatureGroupExtension.cpp  DocumentObjectExtension.h         GeoFeatureGroupExtension.h
+DocumentObjectExtensionPyImp.cpp  GeoFeatureGroupExtensionPyImp.cpp  DocumentObjectExtensionPy.xml     GeoFeatureGroupExtensionPy.xml
+ExtensionContainer.cpp            GroupExtension.cpp ExtensionContainer.h              GroupExtension.h
+ExtensionContainerPyImp.cpp       GroupExtensionPyImp.cpp  ExtensionContainerPy.xml          GroupExtensionPy.xml
+Extension.cpp        OriginGroupExtension.cpp  Extension.h                       OriginGroupExtension.h
+ExtensionPyImp.cpp      OriginGroupExtensionPyImp.cpp ExtensionPy.xml       OriginGroupExtensionPy.xml]"""),
+#
 ("Utilities",),
 ("MeasureDistance.h","Measure distance between two entity",""""""),
 ("ColorModel.h","Color bar like grayscale, inverse gray scale, Tria,",
