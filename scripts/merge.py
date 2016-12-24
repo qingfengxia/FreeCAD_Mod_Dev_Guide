@@ -1,5 +1,5 @@
 """
-by Qingfeng Xia 2015
+by Qingfeng Xia 2016
 Process of generat the ebook
 -> replace file  anchor with URL
 -> insert gen file into main text
@@ -40,7 +40,7 @@ chapters=sorted(chapters, key=lambda f:int(f.split('.')[0]))
 
 CoverPageImage="../images/cover_page.png"
 foreword_chapters=[] #
-appendices_chapters=["FreeCAD Coding Style.md"]
+appendices_chapters=["FreeCAD Coding Style.md", "cmake_cheatsheet.md"]
 all_chapters=foreword_chapters+chapters+appendices_chapters
 all_chapters=[input_folder+f for f in all_chapters]
 
