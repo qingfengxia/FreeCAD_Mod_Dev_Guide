@@ -192,6 +192,8 @@ pandoc_options = """
  - page break between chapters:  --chapters
  - pdf template could be modified: where ?
  
+ if error happend:
+ `pandoc merged.md -o merged.tex`, then `pandoc merged.tex -o merged.pdf`
 """
 print(pandoc_options)
 

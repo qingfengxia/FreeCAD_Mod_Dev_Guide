@@ -91,8 +91,9 @@ bash shell math: `$((math_expr))`
 
 - function is different from macro whose variables have global scope
 
-## important command and variable
-<https://cmake.org/Wiki/CMake_Useful_Variables>
+## important commands and variables
+see more details on variable at <https://cmake.org/Wiki/CMake_Useful_Variables>
+
 ### 1.commands
 
 + $ENV{HOME} #access to environment variable

@@ -1,10 +1,13 @@
-# FreeCAD coding style
+#FreeCAD coding style
 
-### encoding and spaces
+## text encoding and spaces
+
+- source code encoding "utf8": defaultl for most IDE
+
+- indentation, never use TAB, but 4 spaces
 
 - end of line (EOL): using windows style `\r\n`
   set in git and your IDE tool, 
-
 
  ![codelite end of line and space visuability](../images/codelite_editor_settings.png)
 
@@ -17,10 +20,6 @@ sed -i 's/\r//' CRLF.txt
 sed -i 's/$/\r/' LF.txt
 ```
 It is worth of print before substite: ``
-
-- source code encoding "utf8": defaultl for most IDE
-
-- indentation, never use TAB, but 4 spaces
 
 - remove trailing whitespace:
 search by: `find ./*.cpp -type f -exec egrep -l " +$" {} \;`
@@ -35,11 +34,6 @@ search by command``
 
 - doxygen in source documentation
 
-
-### tools for code review
-
-- cppcheck
-- compiler's worning
 
 ## Qt style C++ coding style
 
@@ -94,7 +88,9 @@ It is more Coin3D style,except  "So" namspace suffix is not used. In 2003, C++ c
 
 ## Python coding style 
 
-### [Disccusion on Python coding standard](http://forum.freecadweb.org/viewtopic.php?f=18&t=12833&p=103832#p103832)
+### Disccusion on Python coding standard
+
+[Forum Disccusion on Python coding standard](http://forum.freecadweb.org/viewtopic.php?f=18&t=12833&p=103832#p103832)
 
 **if API will be exposed to other user,  QtSide coding style should be adapted as possible**
 
@@ -114,9 +110,9 @@ _PrivateClassName
 
 ### style checker
 
-PyCXX (Py::Object) should be used as possible, it may give better python2.x and python 3.x compability over the raw C API in <Python.h>
+PyCXX (Py::Object) should be used as possible, it may give better python2.x and python 3.x compability over the raw C API in `<Python.h>`
 
-return PyObject* and Py::Object has same effect?
+return `PyObject*` and `Py::Object` has different impact
 
 pep8 and pyflake to check coding style: sudo apt-get install python3-flake8 flake8
 `flake8 --ignore E265,E402,E501,E266 yourfile.py`

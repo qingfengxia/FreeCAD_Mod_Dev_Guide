@@ -49,6 +49,14 @@ Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 
 ## How to contribute to this ebook
 
-- git clone https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide.git
+- write on unfinished topics/chapters listed in todo.md
+  fork and pull request `git clone https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide.git`
+- file bug for outdated code analysis
+  As this book is about code anlysis while FreeCAD is under heavy development, source codes quoted may outdated quickly.
+  Please point out by report bugs in github
+
+## Acknowledgement to my family
+
+Thanks for my wife Ms J. Wang, and other family members' consideration
 
 ****************************************************
