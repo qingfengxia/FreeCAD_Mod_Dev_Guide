@@ -1,11 +1,15 @@
 """
 by Qingfeng Xia 2016
-Process of generat the ebook
--> replace file  anchor with URL
+Process of generating this ebook
+-> replace file name anchor with URL
 -> insert gen file into main text
 -> merge chapters
--> gen PDF/html with pandoc "pandoc -N merged.md --toc -o merged.pdf"
--> 
+-> gen PDF with pandoc
+->
+
+
+utf8 encoding, built may failed on windows for encoding issue
+if image link fails, pdf can not be generated!
 """
 from __future__ import print_function
 
@@ -23,10 +27,11 @@ input_folder="../chapters/" #chapters md files
 build_folder="../build/"
 output_folder="../pdf/"
 now=datetime.datetime.now()
-ts="__%04d%02d%02d" % (now.year, now.month, now.day) 
+ts="__%04d%02d%02d" % (now.year, now.month, now.day)
 merged_filename_base=build_folder+"merged_"+ts
 merged_filename=merged_filename_base+".md"
 generating_pdf=True
+validating_url = True
 
 os.chdir(currentdir)  # this script must be execute in script folder
 if not os.path.exists(os.path.abspath(build_folder)):
@@ -59,33 +64,53 @@ from mod_folder_desc import  ModFolder
 from part_folder_desc import  PartFolder
 
 FileList=[
-{"folderName":"", "obj":SourceFolder, 'descFile':build_folder+"SourceFolder.md", 
+{"folderName":"", "obj":SourceFolder, 'descFile':build_folder+"SourceFolder.md",
 "inputFile":chapters[1],"anchorText":"## List of files and folders in FreeCAD source folder"},
-{"folderName":"Mod/", "obj":ModFolder, 'descFile':build_folder+"ModFolder.md", 
+{"folderName":"Mod/", "obj":ModFolder, 'descFile':build_folder+"ModFolder.md",
 "inputFile":chapters[1],"anchorText":"## List of modules in FreeCAD Mod folder"},
-{"folderName":"Base/", "obj":BaseFolder, 'descFile':build_folder+"BaseFolder.md", 
+{"folderName":"Base/", "obj":BaseFolder, 'descFile':build_folder+"BaseFolder.md",
 "inputFile":chapters[2],"anchorText":"## List of header files in Base folder"},
-{"folderName":"App/", "obj":AppFolder, 'descFile':build_folder+"AppFolder.md", 
+{"folderName":"App/", "obj":AppFolder, 'descFile':build_folder+"AppFolder.md",
 "inputFile":chapters[2],"anchorText":"## List of header files in App folder"},
-{"folderName":"Gui/", "obj":GuiFolder, 'descFile':build_folder+"GuiFolder.md", 
+{"folderName":"Gui/", "obj":GuiFolder, 'descFile':build_folder+"GuiFolder.md",
 "inputFile":chapters[3],"anchorText":"## List of header files in Gui folder"},
-{"folderName":"Mod/"+ModuleName+"/", "obj":ModuleFolder, 'descFile':build_folder+"ModuleFolder.md", 
+{"folderName":"Mod/"+ModuleName+"/", "obj":ModuleFolder, 'descFile':build_folder+"ModuleFolder.md",
 "inputFile":chapters[5],"anchorText":"## List of essential files in Module folder"},
-{"folderName":"Mod/Part/", "obj":PartFolder, 'descFile':build_folder+"PartFolder.md", 
+{"folderName":"Mod/Part/", "obj":PartFolder, 'descFile':build_folder+"PartFolder.md",
 "inputFile":chapters[5],"anchorText":"### Important headers in Part Module"}
 ]
 
 ### Important headers in Part Module
 #########################################################
-#import urllib2  urllib2.urlopen(url) only work for python2
-import requests
-def validate_url(url):
-    ret = requests.get(url)
-    if ret.status_code == requests.codes.ok:
-        #print("Exists!")
-        return True
-    else:
-        return False
+
+if sys.version_info[0]<3:
+    import urllib2
+    def validate_url(url):
+        request = urllib2.Request(location)
+        request.get_method = lambda : 'HEAD'
+        try:
+            response = urllib2.urlopen(request)
+            return True
+        except urllib2.HTTPError:
+            return False
+
+else:
+    import urllib.request
+    def validate_url(url):
+        """
+        Checks that a given URL is reachable.
+        :param url: A URL
+        :rtype: bool
+        """
+        #print(url)
+        request = urllib.request.Request(url)
+        request.get_method = lambda: 'HEAD'
+
+        try:
+            urllib.request.urlopen(request)
+            return True
+        except urllib.request.HTTPError:
+            return False
 
 def check_filechange():
     pass
@@ -97,7 +122,7 @@ def link_filelist(s, folderName):
     flist=[f.strip() for f in s[starti:endi].split(' ') if len(f)>3]
     return s[:starti]+", ".join([gen_url(fname,folderName) for fname in flist])+s[endi:]
 
-        
+
 def gen_url(fname,folderName):
     return '['+fname+"]("+FreeCADsrcURL+folderName+fname+")"
 ###############################################
@@ -119,7 +144,7 @@ def gen_filelist(fname,fileList,folderName=""):
                     if desc.find('[')>=0 and desc.find(']')>=0:
                         desc=link_filelist(desc, folderName)
                     f.write('\n>'+desc+'\n\n')
-        
+
 
 def gen_appendix_list():
     pass
@@ -132,12 +157,18 @@ def repalce_file_url(fname, output_filename):
     print("processing url replacement for file:",fname)
     fin=open(fname)
     with open(output_filename,'w') as fout:
+        line_count = 0
         for l in fin.readlines():
+            line_count += 1
             m=anchor_text.search(l)  # findall() for multiple matches
             if m:
-                url='('+FreeCADGitBaseUrl+l[m.start()+1:m.end()-1]+')'
-                lnew=l[:m.start()]+m.group()+url+l[m.end():]
-                #print lnew #debug
+                # m may have two patterns
+                url = FreeCADGitBaseUrl+l[m.start()+1:m.end()-1]
+                if validating_url and validate_url(url):
+                    lnew=l[:m.start()]+m.group()+'('+url+')'+l[m.end():]
+                else:
+                    print('{}: is not valid in file `{}` line {}'.format(url, fname, line_count))
+                    lnew = l
                 fout.write(lnew)
             else:
                 fout.write(l)
@@ -161,7 +192,7 @@ for fname in all_chapters:
     output_folder=build_folder
     output_filename=output_folder+os.path.basename(fname)
     repalce_file_url(fname, output_filename)
-    
+
 ##########################################
 #gen md files to be inserted to chapters
 for it in FileList:
@@ -178,21 +209,25 @@ with open(merged_filename,'w') as merged_file:
                 merged_file.write(l)
             if generating_pdf:
                 merged_file.write('\\pagebreak\n\n')  # raw latex new page, works with 2 newlines followed
-                
+
+
+##################################################
+
+
 ###################################################
 print('\n======convert main content into pdf #####################')
 pandoc_options = """
- - code grammer hightlighted with color: --highlight-style kate 
+ - code grammer hightlighted with color: --highlight-style kate
  - code block is not wrapped by default: --wrap auto
- - show numbering in content? --toc
+ - show numbering in content --toc
  - TOC with number:  not yet supported
  - chapter header with empty line before and after will be nubmerred  -N
- - page margin setup: -V geometry:paperwidth=4in -V geometry:paperheight=6in -V geometry:margin=.5in 
+ - page margin setup: -V geometry:paperwidth=4in -V geometry:paperheight=6in -V geometry:margin=.5in
  - give link a color: -V colorlinks
  - page break between chapters:  --chapters
  - pdf template could be modified: where ?
- 
- if error happend:
+
+ to locate error:
  `pandoc merged.md -o merged.tex`, then `pandoc merged.tex -o merged.pdf`
 """
 print(pandoc_options)
@@ -207,8 +242,8 @@ Popen(cmd, shell=True, stdout=PIPE).communicate() #block until finish
 #######################################################
 print('\n======generate cover page and readme #####################')
 #disable page number in cover page
-Popen(['pandoc',input_folder+"coverpage.docx", "-o", build_folder+"coverpage.pdf"]).communicate() 
-Popen(['pandoc',root_folder+"Readme.md", "-o", build_folder+"Readme.pdf"]).communicate() 
+Popen(['pandoc',input_folder+"coverpage.docx", "-o", build_folder+"coverpage.pdf"]).communicate()
+Popen(['pandoc',root_folder+"Readme.md", "-o", build_folder+"Readme.pdf"]).communicate()
 
 from PyPDF2 import PdfFileReader, PdfFileMerger
 pdf_files = [build_folder+"coverpage.pdf", build_folder+"Readme.pdf", merged_filename_base+".pdf"]
