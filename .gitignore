@@ -5,6 +5,7 @@ reference/*
 build/*
 
 #my persoinal notes in txt
+secrte.md
 *.txt
 chapters/*.pyd
 chapters/*.pyc
