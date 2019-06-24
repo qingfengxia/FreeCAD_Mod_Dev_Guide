@@ -8,7 +8,7 @@ Process of generating this ebook
 -> merge main text PDF with cover page
 
 
-
+Notes:
 utf8 encoding, built may failed on windows for encoding issue
 if image link fails, pdf can not be generated!
 """
