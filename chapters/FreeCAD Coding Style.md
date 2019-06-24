@@ -7,7 +7,7 @@
 - indentation, never use TAB, but 4 spaces
 
 - end of line (EOL): using windows style `\r\n`
-  set in git and your IDE tool, 
+  set in git and your IDE tool,
 
  ![codelite end of line and space visuability](../images/codelite_editor_settings.png)
 
@@ -24,20 +24,20 @@ It is worth of print before substite: ``
 - remove trailing whitespace:
 search by: `find ./*.cpp -type f -exec egrep -l " +$" {} \;`
 search before you replace all, some file needs trailing whitespaces, print `sed -n /[[:blank:]]*$/p file.cpp`
-substitue with: `sed 's/[[:blank:]]*$//' file.cpp`
+substitute with: `sed 's/[[:blank:]]*$//' file.cpp`
 
-- no trailing spaces at end coding: 
+- no trailing spaces at end coding:
 search by command``
 
-- limitation of max char in one line: 
-  make it easy to read without scrollbar, 80-90 is recommened.
+- limitation of max char in one line:
+  make it easy to read without scrollbar, 80-90 is recommended.
 
 - doxygen in source documentation
 
 
 ## Qt style C++ coding style
 
-Generaly, the C++ coding style is similar with Qt
+Generally, the C++ coding style is similar with Qt
 <http://qt-project.org/wiki/Qt_Coding_Style>
 
 for example
@@ -45,7 +45,7 @@ for example
 StdCmdExport::StdCmdExport()
     : Command("Std_Export")
 {
-     // seting the
+     // setting the
      sGroup        = QT_TR_NOOP("File");
      sMenuText     = QT_TR_NOOP("&Export...");
      sToolTipText  = QT_TR_NOOP("Export an object in the active document");
@@ -68,35 +68,35 @@ type prefix for function parameter is not as useful as for member Variable,
 
 for example: `App::DocumentObject *pcFeat`
 
-It is more Coin3D style,except  "So" namspace suffix is not used. In 2003, C++ compilers are not so powerful and standardised to support even template and namespace in a cross-platform way. visual c++ was really bad to surport C++ standard for some time.
+It is more Coin3D style,except  "So" namspace suffix is not used. In 2003, C++ compilers are not so powerful and standardised to support even template and namespace in a cross-platform way. visual c++ was really bad to support C++ standard for some time.
 
 - Namespace is enforced for each module, using "<ModuleName>Export "
 - class name (CamelClass) , Acronyms are camel-cased like 'XmlWriter'
 - private members:
-- member function name (begins with lowerCase). 
+- member function name (begins with lowerCase).
 - no tab  but 4 spaces indentation
 
 ### Fifference from Qt style
 
-- getPropertyName() is used in FreeCAD, while propertyName() is used in Qt, 
+- getPropertyName() is used in FreeCAD, while propertyName() is used in Qt,
 - function parameter has the pattern "a single char for type"+"meaningful name"
-> commont type char: s->string; i->int; h->Base::Reference/object handle; e->enum; f->float/double; p->pointer; 
+> common type char: s->string; i->int; h->Base::Reference/object handle; e->enum; f->float/double; p->pointer;
 - c++ STL and boost lib is used, but higher level Qt style API provided for user
 
 
 ***********************************************************************************
 
-## Python coding style 
+## Python coding style
 
 ### Disccusion on Python coding standard
 
-[Forum Disccusion on Python coding standard](http://forum.freecadweb.org/viewtopic.php?f=18&t=12833&p=103832#p103832)
+[Forum Disccusion on Python coding standard](https://forum.freecadweb.org/viewtopic.php?f=18&t=12833&p=103832#p103832)
 
 **if API will be exposed to other user,  QtSide coding style should be adapted as possible**
 
 python standard coding style could be used internally.
 
-property name start with upppercase, e.g. 
+property name start with upppercase, e.g.
 [src/Mod/TemplatePyMod/DocumentObject.py]
 
 PythonCommand class name
@@ -110,7 +110,7 @@ _PrivateClassName
 
 ### style checker
 
-PyCXX (Py::Object) should be used as possible, it may give better python2.x and python 3.x compability over the raw C API in `<Python.h>`
+PyCXX (Py::Object) should be used as possible, it may give better python2.x and python 3.x compatibility over the raw C API in `<Python.h>`
 
 return `PyObject*` and `Py::Object` has different impact
 
@@ -131,7 +131,7 @@ Python IDE would suggest confliction with flake8 and avoid trailing spaces in c+
 [src/Mod/Part/App/TopoShape.h]
 `static void convertTogpTrsf(const Base::Matrix4D& mtrx, gp_Trsf& trsf);`
 
-### Inconsistent API for getter 
+### Inconsistent API for getter
 ```
 Gui::Application::Instance
 Gui::MainWindow::getInstance();

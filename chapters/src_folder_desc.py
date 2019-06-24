@@ -14,8 +14,8 @@ SourceFolder=[
 """Source code of ome modules will be explained in later section"""),
 ("Tools","Tool to build the source code: fcbt.py",
 """fcbt can generate a basic module from _TEMPLATE_ folder, """),
-("Doc","Manual and documentaton"),
-("CMakeLists.txt","topmost CMake config file, kind of high level cross-platform makefile generater",
+("Doc","Manual and documentation"),
+("CMakeLists.txt","topmost CMake config file, kind of high level cross-platform makefile generator",
 """
 Module developer needs not to care about this file, CMakeLists.txt within module will be automatically included.
 """),

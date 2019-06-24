@@ -72,7 +72,7 @@ MESSAGE("${y}")  # prints "a b c" to stdout (without quotes)
 
 - cmake variable and command is case insensitive  
 > but UPPER case for command is recommended   
-and varible content like filename is case sensitive
+and variable content like filename is case sensitive
 
 - ""(empty string), "NO; N; FALSE; <var>-NOTFOUND; OFF;0;" or lower case is regarded false in IF()
 
@@ -126,7 +126,7 @@ set(CMAKE_CXX_STANDARD 11) #98, 14, 17
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ```
 
-### 4. predefined platform and compiler detection varibles   
+### 4. predefined platform and compiler detection variables   
 platform like: WIN32, APPLE, UNIX (linux is UNIX but not APPLE), MYSYS, CYGWIN
 compilers: MSVC, MINGW, iNTEL; CMAKE_COMPILER_IS_GNUCXX, CLANG
 
@@ -165,5 +165,5 @@ cmake is a new language, why should we learn a new language instead of json or p
 - un-intuitive function style programming to c/python programmers
 - messed up of variable_content and variable
 - mixed up argument list and keyword in function call, not sep by comma
-> relies heavily on this fuction to parse function/command input arg
+> relies heavily on this function to parse function/command input arg
 `CMAKE_PARSE_ARGUMENTS(<prefix> <options> <one_value_keywords> <multi_value_keywords> args...)` 

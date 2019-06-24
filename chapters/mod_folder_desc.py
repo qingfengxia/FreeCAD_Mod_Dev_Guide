@@ -1,7 +1,7 @@
 #introduction to each module in src/Mod
 ModFolder=[
 ("Mechanical Engineering, CAD and CAM",),
-("Part","make primitive 3D objects like cube, cylinder, boolean operaton",
+("Part","make primitive 3D objects like cube, cylinder, boolean operation",
 """The	Part	module	is based on	the professional CAD kernel ,	 OpenCasCade,	 objects and	 functions."""),
 ("OpenSCAD","Extra OpenCasCade functions","""use the high level API in Part module instead"""),
 ("PartDesign","modelling	 complex	 solid	 part from 2D sketch","""The	 Part	 Design	 Workbench	 provides	 tools	 for	 modelling	 complex	 solid	 parts	 and	 is	 based	 on	 a	 Feature	 editing
@@ -11,14 +11,14 @@ methodology	to	produce	a	single	contiguous	solid.	It	is	intricately	linked	with	
 afterwards.	 Some	 of	 these	 tools	 also	 work	 on	 all	 other	 FreeCAD	 objects,	 not	 only	 those	 created	 with	 the	 Draft	 workbench.	 It
 also	provides	a	complete	snapping	system,	and	several	utilities	to	manage	objects	and	settings."""),
 ("Drawing","put 3D model to paper, can save to DXF and SVG format",""""""),
-("Sketcher","buld up 3D part from 2D sketch used in PartDesign",""""""),
+("Sketcher","build up 3D part from 2D sketch used in PartDesign",""""""),
 ("Assembly","Assembly of part","""Constraint of """),
 ("Cam","Computer aided machining (CAM), CNC machining",""""""),
 ("Path","Tool path for CAM",""""""),
 #
 ("Civil Engineering",),
 ("Idf","used by Arch module",""""""),
-("Arch","CAD for civil engineering, like desing of a house",
+("Arch","CAD for civil engineering, like design of a house",
 """The	 Arch	 workbench	 provides	 modern	 BIM 	 workflow	 to	 FreeCAD,	 with	 support	 for	 features	 like	 IFC	 support,	 fully	 parametric
 architectural	 entities	 such	 as	 walls,	 structural	 elements	 or	 windows,	 and	 rich	 2D	 document	 production.	 The	 Arch	 workbench
 also	feature	all	the	tools	from	the	Draft	Workbench"""),

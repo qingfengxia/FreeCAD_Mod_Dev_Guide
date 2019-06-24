@@ -38,7 +38,7 @@ DocumentObject is derived from this class, macro function will be explained in P
 ("DynamicProperty.h","Runtime added into PropertyContainer","""not derived from App::Property"""),
 ("ObjectIdentifier.h","define Component class and ObjectIdentifier class",
  """A component is a part of a Path object, and is used to either name a property or a field within a property. A component can be either a single entry, and array, or a map to other sub-fields."""),
-("PropertyLinks.h","property is to Link DocumentObjects and Feautures in a document.",""""""),
+("PropertyLinks.h","property is to Link DocumentObjects and Features in a document.",""""""),
 ("PropertyUnits.h","Quantiy as Property, PropertyAngle, PropertyAcceleration, etc",
 """its path is based on ObjectIdentifier"""),
 ("PropertyPythonObject.h"," to manage Py::Object instances as properties",""""""),
@@ -112,7 +112,7 @@ MaterialObject is derived from DocumentObject and contains data from Material cl
 A placement defines an orientation (rotation) and a position (base) in 3D space. It is used when no scaling or other distortion is needed.
 """),
 #
- ("InventorObject.h","derived from App::GeoFeature wiht only 2 properties: PropertyString Buffer, FileName; ",""""""),
+ ("InventorObject.h","derived from App::GeoFeature with only 2 properties: PropertyString Buffer, FileName; ",""""""),
 ("VRMLObject.h","derived from App::GeoFeature",""""""),
 ("App::Data namespace and ComplexGeoData class",),
 ("ComplexGeoData.h","store data to represent complex geometry in line, facet(triangle) and segment",
