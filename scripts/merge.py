@@ -2,12 +2,13 @@
 by Qingfeng Xia 2016
 Process of generating this ebook
 -> replace file name anchor with URL
+-> validate the url and markdown syntax per chapter file
 -> insert gen file into main text
--> merge chapters
--> gen PDF with pandoc
-->
+-> merge chapters and gen PDF with TOC with pandoc
+-> merge main text PDF with cover page
 
 
+Notes:
 utf8 encoding, built may failed on windows for encoding issue
 if image link fails, pdf can not be generated!
 """
@@ -45,7 +46,7 @@ chapters=sorted(chapters, key=lambda f:int(f.split('.')[0]))
 
 CoverPageImage="../images/cover_page.png"
 foreword_chapters=[] #
-appendices_chapters=["FreeCAD Coding Style.md", "cmake_cheatsheet.md"]
+appendices_chapters=["FreeCAD Coding Style.md", "cmake_cheatsheet.md", "OpenInventor (Coin) learning notes.md"]
 all_chapters=foreword_chapters+chapters+appendices_chapters
 all_chapters=[input_folder+f for f in all_chapters]
 
@@ -187,6 +188,7 @@ def file_insert(inputFile, insertedFile, posAnchor):
                         for linserted in f.readlines():
                             fout.write(linserted)
     return output_filename
+
 # replace url
 for fname in all_chapters:
     output_folder=build_folder
@@ -201,7 +203,11 @@ for it in FileList:
 for it in FileList:
     file_insert(it["inputFile"], it['descFile'], it["anchorText"])
 
-#merging
+
+######################################
+
+#######################################
+#merging chapters for TOC
 with open(merged_filename,'w') as merged_file:
     for f in all_chapters:
         with open(build_folder+os.path.basename(f)) as fin:
