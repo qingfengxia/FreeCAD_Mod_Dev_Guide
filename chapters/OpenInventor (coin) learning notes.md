@@ -67,17 +67,17 @@ FreeCAD: `BaseClass->App::PropertyContainer->App::DocumentObject->Part::Feature`
 
 - SoGroup:  similar with `App::DocumentObjectGroup` in FreeCAD
 
-> An `SoSwitch` node is exactly like an SoGroup except that it visits only one of its children. `SoShape` is derived from `SoGroup` Shared Instancing: share the SoShape, but seperate SoTransform, ref counting
+> An `SoSwitch` node is exactly like an SoGroup except that it visits only one of its children. `SoShape` is derived from `SoGroup` Shared Instancing: share the SoShape, but separate SoTransform, ref counting
 
 - SoSeperator: State-preserving group node (derived from `SoGroup`), conprising SoColor, SoMaterial, SoTexture, SoShape, etc.
 
-> Subgraphs parented by SoSeparator nodes will not affect the previous state, as they push and pop the traversal state before and after traversal of its children. Order (topdown, left to right) in SoDB (scene graph) is important to determine rendering, see exmaple in <http://developer.openinventor.com/content/34-creating-groups>. Scale node is only added to first Hydrogen SoGroup, but this scale applied to the second Hydrogen SoGroup. To isolate the effects of nodes in a group, use an SoSeparator node, which is a subclass of SoGroup . Before traversing its children, an SoSeparator saves the current traversal state. When it has finished traversing its children, the SoSeparator restores the previous traversal state. Nodes within an SoSeparator thus do not affect anything above or to the right in the graph.
+> Subgraphs parented by SoSeparator nodes will not affect the previous state, as they push and pop the traversal state before and after traversal of its children. Order (topdown, left to right) in SoDB (scene graph) is important to determine rendering, see example in <http://developer.openinventor.com/content/34-creating-groups>. Scale node is only added to first Hydrogen SoGroup, but this scale applied to the second Hydrogen SoGroup. To isolate the effects of nodes in a group, use an SoSeparator node, which is a subclass of SoGroup . Before traversing its children, an SoSeparator saves the current traversal state. When it has finished traversing its children, the SoSeparator restores the previous traversal state. Nodes within an SoSeparator thus do not affect anything above or to the right in the graph.
 
 - SoPath: Container class for traversal path for nodes in scene database, see also `SoFullPath, SoNodeKitPath`. It is derived from `SoBase`, not `SoFieldContainer`, it is different from `App::PropertyLink` in FreeCAD.
 
 > "SoPath objects contain a list of SoNode pointers and a list of child indices. Indices are necessary to disambiguate situations where a node uses the same node as a child multiple times. Similarly, UUID and getUniqueName() in FreeCAD make the unique reference to Document Objects."
 
-- SoBaseKit: base class for all NodeKit (not a SoGroup) which create groups of scene graph nodee. Parts are added as hidden children, accessable only by the methods of SoBaseKit and its derived classes.
+- SoBaseKit: base class for all NodeKit (not a SoGroup) which create groups of scene graph nodee. Parts are added as hidden children, accessible only by the methods of SoBaseKit and its derived classes.
 
 - SoSeparatorKit: A nodekit that is used for creating nodekit hierarchies. SoSeparatorKit contains a transform part, a childList part, and a few others like pickStyle , appearance in its catalog.
 
@@ -89,7 +89,7 @@ FreeCAD: `BaseClass->App::PropertyContainer->App::DocumentObject->Part::Feature`
 
 - SoShape: SoCube/SoCone/SoCynlinder/SoSphere/SoText/SoImageSoNurbsCurve/SoNurbsSurface/SoImage: (`App::GeoFeature` in FreeCAD??)
 
-> For rendering basic shpapes.Insert a shape into the scenegraph and render with the current material, texture and drawstyle settings (if any, otherwise the default settings are used)
+> For rendering basic shapes.Insert a shape into the scenegraph and render with the current material, texture and drawstyle settings (if any, otherwise the default settings are used)
 
 - SoDetail: Superclass for all classes (SoCubeDetail...) storing detailed information about particular shapes.
 

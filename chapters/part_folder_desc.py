@@ -1,5 +1,5 @@
 PartFolder=[
-("MakeBottle.py", "good example of making complex gemoetry from  points to wires to face to solid", 
+("MakeBottle.py", "good example of making complex geometry from  points to wires to face to solid", 
 """**class _PartJoinFeature** is a community contributed pure python, 
 extending **Part::FeaturePython**,  *self.Type = \"PartJoinFeature\"* 
 """),
@@ -26,7 +26,7 @@ class PartExport TopoShape : public Data::ComplexGeoData
 //Boolean operation, feature loft, document save, import/export, getFaces/Segments
 ```"""),
 ("App/CrossSection.h","",""""""),
-("App/FeatureBoolean.h","boolean opertion Part::Feature cut, fusion, intersect",
+("App/FeatureBoolean.h","boolean operation Part::Feature cut, fusion, intersect",
 """```class Boolean : public Part::Feature
 virtual BRepAlgoAPI_BooleanOperation* makeOperation(const TopoDS_Shape&, const TopoDS_Shape&) const = 0;
 ```"""),

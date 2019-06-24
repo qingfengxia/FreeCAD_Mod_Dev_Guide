@@ -80,7 +80,7 @@ struct std::is_standard_layout;
 ### virtual destructor
 
 Virtual functions do not work in constructors.
-contructor init member in declear sequence, while destructing in the reverse seq.
+constructor init member in declear sequence, while destructing in the reverse seq.
 
 > "A common guideline is that a destructor for a base class must be either public and virtual or protected and nonvirtual"
 

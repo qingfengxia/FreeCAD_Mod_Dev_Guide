@@ -1,6 +1,6 @@
 **Module developer's guide to FreeCAD source code**
 
-by Qingfeng Xia 
+by Qingfeng Xia
 http://www.iesensor.com
 
 - 2015-09-18 version 0.1 *for FreeCAD version 0.16-dev*
@@ -8,7 +8,7 @@ http://www.iesensor.com
 
 ## License of this book
 
-This ebook is licensed the same as FreeCAD document license 
+This ebook is licensed the same as FreeCAD document license
 CC-BY 3.0 <http://creativecommons.org/licenses/by/3.0/>
 
 ## Acknowledge to developers of FreeCAD
@@ -19,14 +19,14 @@ Original/lead developers:
 - [Werner Mayer]()
 - [yorik van havre](https://www.facebook.com/yorikvanhavre)
 
-Add all contributors see <http://www.freecadweb.org/wiki/index.php?title=Contributors>
+Add all contributors see <https://www.freecadweb.org/wiki/Contributors>
 
 ## Target audiances: new module developers
 
 Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 
-- [Foundamental document on official wiki for FreeCAD](http://www.freecadweb.org/wiki/)
-- [FreeCAD python API document](http://www.freecadweb.org/api/)
+- [Foundamental document on official wiki for FreeCAD](https://www.freecadweb.org/wiki/)
+- [FreeCAD python API document](https://www.freecadweb.org/api/)
 - [single file PDF user manual for quick start](http://sourceforge.net/projects/free-cad/files/FreeCAD%20Documentation/)
 
 ## Doxygen documents links
@@ -52,7 +52,7 @@ Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 - write on unfinished topics/chapters listed in todo.md
   fork and pull request `git clone https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide.git`
 - file bug for outdated code analysis
-  As this book is about code anlysis while FreeCAD is under heavy development, source codes quoted may outdated quickly.
+  As this book is about code analysis while FreeCAD is under heavy development, source codes quoted may outdated quickly.
   Please point out by report bugs in github
 
 ## Acknowledgement to my family

@@ -2,7 +2,7 @@
 ModuleName="Fem"
 #test existent is needed, by libcurl
 ModuleFolder=[
-("Init.py","Module intialization code, will be run during FreeCAD startup", 
+("Init.py","Module initialization code, will be run during FreeCAD startup", 
 """   e.g. add importable and exportable file types, it is optional"""),
 ("InitGui.py","to declare Module's Workbench class",
 """to insert items into FreeCAD Gui"""),
@@ -32,7 +32,7 @@ dir({})```""".format(ModuleName,ModuleName)),
 ("Gui/App{}Gui.cpp".format(ModuleName),"",
 """ within function of init{}Gui():
 - {}_Import_methods[]
-- load comand.cpp,
+- load command.cpp,
 - workbench and ViewProvider init(),
 - `Base::Interpreter().loadModule('python modules')`
 - register preferences pages 

@@ -133,7 +133,7 @@ def gen_filelist(fname,fileList,folderName=""):
     with open(fname,'w') as f:
         for it in fileList:
             if(len(it)==1): #group start
-                #f.write('***\n') #sep line. cuase error in pdf
+                #f.write('***\n') #sep line. cause error in pdf
                 f.write("\n\n**"+it[FileName]+"**\n\n")
                 #f.write('***\n') #sep line
                 #print('folder group:'+it[FileName])
@@ -217,7 +217,7 @@ with open(merged_filename,'w') as merged_file:
 ###################################################
 print('\n======convert main content into pdf #####################')
 pandoc_options = """
- - code grammer hightlighted with color: --highlight-style kate
+ - code grammar highlighted with color: --highlight-style kate
  - code block is not wrapped by default: --wrap auto
  - show numbering in content --toc
  - TOC with number:  not yet supported

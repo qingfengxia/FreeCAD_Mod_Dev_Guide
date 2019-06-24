@@ -13,7 +13,7 @@ GuiFolder=[
  - `Gui::CommandManager &commandManager(void);`
  """),
 ("ApplicationPy.cpp","Export Gui::Application methods as FreeCADGui python module",
-"""other ClassNamePy.cpp are also init and incorporated into FreeCADGui.py, Control, Selecton module"""),
+"""other ClassNamePy.cpp are also init and incorporated into FreeCADGui.py, Control, Selection module"""),
 ("FreeCADGuiInit.py"," function like Init.py and InitGui.py in other module",
 """define Workbench and StdWorkbech python class, InitApplications(), and add types"""),
 ("Gui components",),
@@ -51,7 +51,7 @@ If you want to extend a QWidget class to save/restore its data  you just have to
 ("DockWindowManager.h","",""""""),
 ####################################################
 ("Model-Document-View design pattern",),
-("Document.h","Document class's coresponding object in the Gui namespace",
+("Document.h","Document class's corresponding object in the Gui namespace",
 """`Gui::Document class` includes a member of `App::Document  class`
 Its main responsibility is keeping track off open windows for a document and warning on unsaved closes.
 All handled views on the document must inherit from MDIView"""),
@@ -104,7 +104,7 @@ SelectionFilter.l      SelectionView.cpp SelectionFilter.tab.c  SelectionView.h]
 ######################################
 ("TaskView Framework",),
 ("Control.h" ,"ControlSingleton is TaskView controller, update all views for document change",""),
-("TaskView","TaskView is feature setup dialog embeded in left pane",""""""),
+("TaskView","TaskView is feature setup dialog embedded in left pane",""""""),
 ####################################
 ("Python related classes",),
 ("PythonConsole.h","Interactive Python console in dockable windows",""""""),
