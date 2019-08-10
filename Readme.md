@@ -3,7 +3,7 @@
 by Qingfeng Xia
 http://www.iesensor.com
 
-## Changelog
+## [Changelog](./changelog.md)
 - 2015-09-18 version 0.1 *for FreeCAD version 0.16-dev*
 
 - 2016-09-18 version 0.2 *for FreeCAD version 0.17-dev*
@@ -14,10 +14,18 @@ http://www.iesensor.com
 
 This book should be updated for the recent release, esp. after migration to Python3 + Pyside2. I plan another release for FreeCAD 0.19 dev near Xmas time.
 
-## License of this book
+## [License of this book](http://creativecommons.org/licenses/sa/4.0/)
 
-This ebook is licensed the same as FreeCAD document license
-CC-BY 3.0 <http://creativecommons.org/licenses/by/3.0/>
+Similar as FreeCAD document license CC-BY 3.0
+
+This ebook is licensed as [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
+
+see the full  text in this repo and also online  <https://creativecommons.org/licenses/by-sa/4.0/>
+In short, this license let you 
+> Share — copy and redistribute the material in any medium or format
+> Adapt — remix, transform, and build upon the material for any purpose, even commercially. 
+
+Just request: share your derived work(share-alike) and credit the author (attribution)
 
 ## Acknowledge to developers of FreeCAD
 
@@ -51,6 +59,7 @@ Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 - Record personal note and lesson during writing/contributing code to FreeCAD
 - Some chapters of this ebook is seeking to be merged into official wiki after reviewed as usable
 
+My research: "Automated and Intelligent Engineering Design"
 
 ## How to contribute to this ebook
 
