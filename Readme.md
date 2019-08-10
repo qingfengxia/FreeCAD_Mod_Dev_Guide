@@ -65,11 +65,12 @@ My research: "Automated and Intelligent Engineering Design"
 
 ## How to contribute to this ebook
 
-- write on unfinished topics/chapters listed in todo.md
+- write on unfinished topics/chapters listed in [todo.md](./todo.md)
   fork and pull request `git clone https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide.git`
+
 - file bug for outdated code analysis
   As this book is about code analysis while FreeCAD is under heavy development, source codes quoted may outdated quickly.
-  Please point out by report bugs in github
+  Please point out by report bugs in [ this github issues board](https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide/issues)
 
 ## Acknowledgement to my family
 
