@@ -29,7 +29,7 @@ Module developer needs not to care about this file
 """),
 ("3rdParty","Third party code integration",
 """boost.CMakeLists.txt  CxImage  Pivy-0.5  zlib.CMakeLists.txt CMakeLists.txt   Pivy  salomesmesh"""),
-("zipios++","source of zipios++ lib")
+("zipios++","source of zipios++ lib"),
 ("Build","set the version of FreeCAD"),
 ("MacAppBundle","config file to generate MacOSX bundle (installer)"),
 ("XDGData","FreeCAD.desktop file for linux package compliant Linux freedesktop standard"),

@@ -10,3 +10,5 @@ secrte.md
 chapters/*.pyd
 chapters/*.pyc
 chapters/__pycache__
+
+secret.md

@@ -45,8 +45,13 @@ chapters=sorted(chapters, key=lambda f:int(f.split('.')[0]))
 #for ch in chapters: print(ch)
 
 CoverPageImage="../images/cover_page.png"
-foreword_chapters=[] #
-appendices_chapters=["A1.FreeCAD_code_style.md", "A2.cmake_cheatsheet.md", "A3.OpenInventor_learning_notes.md"]
+foreword_chapters=[] # license file is  too long
+
+appendices_chapters=[
+        "A1.FreeCAD_code_style.md", 
+        "A2.cmake_cheatsheet.md", 
+        "A3.OpenInventor_learning_notes.md"
+        ]
 all_chapters=foreword_chapters+chapters+appendices_chapters
 all_chapters=[input_folder+f for f in all_chapters]
 
