@@ -3,6 +3,8 @@
 by Qingfeng Xia
 http://www.iesensor.com
 
+download the latest version from pdf folder of this repo
+
 ## [Changelog](./changelog.md)
 - 2015-09-18 version 0.1 *for FreeCAD version 0.16-dev*
 
