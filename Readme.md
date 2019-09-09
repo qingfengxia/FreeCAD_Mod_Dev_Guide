@@ -57,7 +57,7 @@ Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 
 - Learn the software architecture of FreeCAD: a large open source project
 - Learn to use git to contribute to open source projects like FreeCAD
-- Save time for new developers to explore the source codde of FreeCAD
+- Save time for new developers to explore the source code of FreeCAD
 - Record personal note and lesson during writing/contributing code to FreeCAD
 - Some chapters of this ebook is seeking to be merged into official wiki after reviewed as usable
 

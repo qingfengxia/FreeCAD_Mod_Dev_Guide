@@ -3,7 +3,7 @@ PartFolder=[
 """**class _PartJoinFeature** is a community contributed pure python, 
 extending **Part::FeaturePython**,  *self.Type = \"PartJoinFeature\"* 
 """),
-("JoinPartFeature.py","good exaple of pure python implemented Feature ",""""""),
+("JoinPartFeature.py","good example of pure python implemented Feature ",""""""),
 ("App/FT2FC.h","FreeType font to FreeCAD python related tool",""""""),
 #
 ("App/FeatureReference.h", "Base class of all shape feature classes in FreeCAD",
