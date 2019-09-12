@@ -1,9 +1,10 @@
 **Module developer's guide to FreeCAD source code**
 
-by Qingfeng Xia
-http://www.iesensor.com
+by Qingfeng Xia 2016~
 
-download the latest version from pdf folder of this repo
+by [Luzpaz 2019~](https://github.com/luzpaz)
+
+download the latest version from `pdf` folder of this repo
 
 ## [Changelog](./changelog.md)
 - 2015-09-18 version 0.1 *for FreeCAD version 0.16-dev*
@@ -39,7 +40,7 @@ Original/lead developers:
 
 Add all contributors see <https://www.freecadweb.org/wiki/Contributors>
 
-## Target audiances: new module developers
+## Target audiences: new module developers
 
 Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 
@@ -70,10 +71,19 @@ My research: "Automated and Intelligent Engineering Design"
 
 - file bug for outdated code analysis
   As this book is about code analysis while FreeCAD is under heavy development, source codes quoted may outdated quickly.
-  Please point out by report bugs in [ this github issues board](https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide/issues)
+  Please point out my report bugs in [ this github issues board](https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide/issues)
+  
+- This ebook is pre-processed by a python script, see more details in the [scripts](https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide/tree/master/scripts) folder's Readme.
+
+  There are some anchor texts like:
+
+  -  [src/*.h/cpp] are processed into link to the latest official FreeCAD source.
+  - some another anchors "## folders ... ", which will be marked out soon more explicitly
 
 ## Acknowledgement to my family
 
-Thanks for my wife Ms J. Wang, and other family members' for the housework exempt to complete this work
+This work is not funded to my employers (Oxford Unviersity, UKAEA) by the time 2019. It is a community voluntary work, thank every one review, contribute to this book.
+
+Qingfeng Xia thanks for my wife Ms J. Wang, and other family members' for the housework exempt to complete this work.
 
 ****************************************************
