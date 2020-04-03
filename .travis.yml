@@ -1,0 +1,25 @@
+dist: bionic
+sudo: required
+language: python
+python: 3.6
+branches:
+  only:
+  - master
+install:
+- sudo apt-get install -y pandoc python3-pypdf2 texlive-latex-base
+- sudo apt-get update -q
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then echo "python2 is not supported";
+  fi
+- echo "current working dir during install stage is $(pwd)"  && ls
+script:
+- python -c "import sys; print(sys.version_info)"
+- echo "current working dir is $(pwd)"
+- cd scripts && python merge.py
+- ls ../pdf/
+deploy:
+  provider: releases
+  api_key:
+    secure: BM81FOyGrzz+0jNT+1TzVFSLuUuhMPBt9tYOJ0HC0RpUaAqtKB/5jn1VkxIhqm5Exif4B3jztzfmlYRbAoR21gkzrrdTQsR3xAH5adPeaQ8lZt3k6fNNTxyS6xlvSZmCZ55mrA6R8+eK1k65QXwtb6vO0zxy5IjDzHkFeCVIizxdHUtMMo29HFd5Gt9skx1qLhXBKMszCEpv6FhlTWFmC+WmD0wsmjbeoh5bmbPo/NY9YjsTky3NyjoQsLnZylEdx/B4QWaCUag54K3gb1tNzF0/SmT8f7rHptw1/mr3+VCuhoIfnWhIMI71vtcr3BoMsoTsxhP9L/c522LAebH9e9qeX+6iLLNGd00P2SvM3dzpYtrvkSiDUJxXG1BUJ14rpBkRp+tGNgMljDGdQ4fbQOfKOG+wsH8mp46FTXOJhWLuQU20l4+A31jIgA5BEhb8CPtNqfkO1rqPtAC1uuNgZanG2IZnJO7xrXfqplVCWy9OwocN2nWCtxpnso/23K680B7n2TXca7mzMURr9ZfFA11H/1Q519z81gumAelpUz0DhfZ3Qyt0ZGTtu86Az8kVVQXb5u4FYTeYK5goYzC9r6RLhbWgLUR4d9Btpy2/FpU+y4BeyUF70WsgJDj2v1nTpbFxiUgzrjoFS10mANfid717jVi5l8jlam+Ze3p2NEc=
+  file: pdf/FreeCAD_Mod_Dev_Guide.pdf
+  on:
+    repo: qingfengxia/FreeCAD_Mod_Dev_Guide

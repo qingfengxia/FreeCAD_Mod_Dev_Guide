@@ -1,6 +1,7 @@
 """
 by Qingfeng Xia 2016
-Process of generating this ebook
+ required tools (ubuntu package names):  pandoc python3-pypdf2 texlive-latex-base
+Process of generating this ebook,
 -> replace file name anchor with URL
 -> validate the url and markdown syntax per chapter file
 -> insert gen file into main text
@@ -119,6 +120,11 @@ else:
             urllib.request.urlopen(request)
             return True
         except urllib.request.HTTPError:
+            print(url)
+            return False
+        except Exception as e:
+            print(url)
+            print(e)
             return False
 
 def check_filechange():
@@ -267,8 +273,13 @@ merger = PdfFileMerger()
 for filename in pdf_files:
     merger.append(PdfFileReader(filename, "rb"))
 final_output_filename = "../pdf/"+"FreeCAD_Mod_Dev_Guide"+ts+".pdf"
+daily_build_filename = "../pdf/"+"FreeCAD_Mod_Dev_Guide"+".pdf"
 if os.path.exists(final_output_filename):
     os.remove(final_output_filename)
+if os.path.exists(daily_build_filename):
+    os.remove(daily_build_filename)
 merger.write(final_output_filename)
+os.copy(final_output_filename, daily_build_filename)
+
 print("final merged file: ", final_output_filename)
 print('====== merge done!================')
