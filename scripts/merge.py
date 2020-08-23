@@ -1,6 +1,7 @@
 """
 by Qingfeng Xia 2016
  required tools (ubuntu package names):  pandoc python3-pypdf2 texlive-latex-base
+ see Readme for windows installation
 Process of generating this ebook,
 -> replace file name anchor with URL
 -> validate the url and markdown syntax per chapter file
@@ -8,6 +9,9 @@ Process of generating this ebook,
 -> merge chapters and gen PDF with TOC with pandoc
 -> merge main text PDF with cover page
 
+anaconda pandoc got this error: 
+--chapters has been removed. Use --top-level-division=chapter instead.
+pandoc -N ../build/merged___20200823.md --wrap auto -s --top-level-division=chapter  --highlight-style kate --toc -V geometry:margin=.5in -V colorlinks -o ../build/merged___20200823.pdf
 
 Notes:
 utf8 encoding, built may failed on windows for encoding issue
@@ -18,7 +22,9 @@ from __future__ import print_function
 FreeCADGitBaseUrl="https://github.com/FreeCAD/FreeCAD/tree/master/"
 FreeCADsrcURL=FreeCADGitBaseUrl+'src/'
 
-import os,sys,inspect,glob,datetime
+import os,sys,inspect,glob,datetime,re
+from subprocess import Popen, PIPE
+from PyPDF2 import PdfFileReader, PdfFileMerger
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
@@ -49,8 +55,8 @@ chapters=sorted(chapters, key=lambda f:int(f.split('.')[0]))
 foreword_chapters=[] # license file is  too long
 
 appendices_chapters=[
-        "A1.FreeCAD_code_style.md", 
-        "A2.cmake_cheatsheet.md", 
+        "A1.FreeCAD_code_style.md",
+        "A2.cmake_cheatsheet.md",
         "A3.OpenInventor_learning_notes.md"
         ]
 all_chapters=foreword_chapters+chapters+appendices_chapters
@@ -165,7 +171,6 @@ def gen_appendix_list():
     pass
 
 #do the replacement before merge, seem only match from the first char
-import re
 anchor_text=re.compile(SourceFileUrlRegexPattern) #\.[h|cpp|py]
 def repalce_file_url(fname, output_filename):
     print("processing url replacement for file:",fname)
@@ -252,8 +257,8 @@ pandoc_options = """
 """
 print(pandoc_options)
 
-from subprocess import Popen, PIPE
-cmd = "pandoc -N %s --wrap auto -s --chapters --highlight-style kate --toc -V geometry:margin=.5in -V colorlinks -o %s.pdf"%(merged_filename, merged_filename_base)
+################################################
+cmd = "pandoc -N %s --wrap auto -s --top-level-division=chapter --highlight-style kate --toc -V geometry:margin=.5in -V colorlinks -o %s.pdf"%(merged_filename, merged_filename_base)
 print(cmd)
 #print(os.getcwd())
 Popen(cmd, shell=True, stdout=PIPE).communicate() #block until finish
@@ -265,7 +270,6 @@ print('\n======generate cover page and readme #####################')
 Popen(['pandoc',input_folder+"coverpage.docx", "-o", build_folder+"coverpage.pdf"]).communicate()
 Popen(['pandoc',root_folder+"Readme.md", "-o", build_folder+"Readme.pdf"]).communicate()
 
-from PyPDF2 import PdfFileReader, PdfFileMerger
 pdf_files = [build_folder+"coverpage.pdf", build_folder+"Readme.pdf", merged_filename_base+".pdf"]
 #for f in pdf_files: print(f)
 merger = PdfFileMerger()
