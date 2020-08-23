@@ -1,6 +1,6 @@
 **Module developer's guide to FreeCAD source code**
 
-by Qingfeng Xia 2016~
+by [Qingfeng Xia](https://www.researchgate.net/profile/Qingfeng_Xia) 2016~
 
 by [Luzpaz 2019~](https://github.com/luzpaz)
 
@@ -62,7 +62,7 @@ Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 - Record personal note and lesson during writing/contributing code to FreeCAD
 - Some chapters of this ebook is seeking to be merged into official wiki after reviewed as usable
 
-My research: "Automated and Intelligent Engineering Design"
+My research: ["Automated and Intelligent Engineering Design"](https://www.researchgate.net/project/Automated-and-Intelligent-Enigneering-Design)
 
 ## How to contribute to this ebook
 

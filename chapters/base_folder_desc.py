@@ -7,7 +7,7 @@ BaseFolder=[
 ("Exception.h"," base class for all FreeCAD exceptios, derived from BaseClass",
 """can be constructed from std::exception, see inherit graph for all derived exceptions"""),
 #
-("Python related ",),
+("Python related headers",),
 ("Interpreter.h","Very important and frequently included header file",
 """define classes: `PyException, PyGILStateLocker, InterpreterSingleton`
 define methods: `addType(), loadModule()`, will be discussed in Python wrapping section"""),
@@ -18,7 +18,7 @@ Therefore this class was designed. It takes care of references and  as long as a
 That means a PyObjectBase derived object you can  only destruct by destructing all FCPyHandle and all python  references on it!"""),
 ("PyObjectBase.h","Base Class for all classed exposed to python interpreter",""),
 ("PyTools.h" ,"ppembed-modules.c: load,access module objects", ""),
-("swigrun.cpp","",
+("swigrun.cpp","there are several with diff swig version",
 "cpp files related to diff swig version are not listed here"),
 ("swigrun.inl","swig for python binding",""),
 #
@@ -27,20 +27,20 @@ That means a PyObjectBase derived object you can  only destruct by destructing a
 ("Writer.h" ,"XML file writer for DocumentObject",""),
 ("Stream.h","define adapter classes for Qt class QByteArray; class QIODevice;class QBuffer;",
 """"""),
+("gzStream.h" ,"gzip compressed file Stream",""),
 ("InputSource.h" ,"",
 "`class BaseExport StdInputStream : public XERCES_CPP_NAMESPACE_QUALIFIER BinInputStream`"),
 ("FileInfo.h"  ,"File name unification class",
 """This class handles everything related to file names the file names which are internal generally UTF-8 encoded on all platforms."""),
 ("FileTemplate.h","used for testing purpose",""),
-("gzStream.h" ,"gzip compressed file Stream",""),
+("Parameter.h"  ,"ParameterGrp: key-value, XML persistence as app config",
+"""`class  BaseExport ParameterGrp	: public Base::Handled,public Base::Subject <const char*>`
+`class BaseExport ParameterManager	: public ParameterGrp`"""),
 ("Console.h" ,"output message to terminal which starts FreeCADCmd",
 """ConsoleObserver and ConsoleSingleton with python code [Console.cpp],
 This is not Python Console, but dealing with stdio, logging to terminal which starts FreeCADCmd.
 `class BaseExport ConsoleObserverStd: public ConsoleObserver` to write Console messages and logs the system con.
 """),
-("Parameter.h"  ,"ParameterGrp: key-value, XML persistence as app config",
-"""`class  BaseExport ParameterGrp	: public Base::Handled,public Base::Subject <const char*>`
-`class BaseExport ParameterManager	: public ParameterGrp`"""),
 ("Debugger.h","Debugger class",
 """Debugging related classes in source files [Debugger.h Debugger.cpp StackWalker.h StackWalker.cpp MemDebug.h]"""),
 #
@@ -51,10 +51,12 @@ This is not Python Console, but dealing with stdio, logging to terminal which st
 ("PersistencePy.xml" ,"XML to generate PersistencePyImp.cpp by python script",""),
 #
 ("Geometry related calculation classes with *Py.cpp",),
-("Axis.h","Class: Axis",""),
+("Axis.h","Class for Axis of coordination system",""),
 ("BoundBox.h","bounding boxes of the 3D part, define max{x,y,z} and min{x,y,z}",""),
 ("Rotation.h","define class and method for rotation an objecti n 3D space",""),
 ("Placement.h" ,"class to place/relocate an object in 3D space","see official api doc: <https://www.freecadweb.org/api/Placement.html>"),
+("DualNumber.h" "Dual Numbers are 2-part numbers like complex numbers, but different algebra",""),
+("DualQuaternion.h" "Quaternion of Dual Numbers for placement interpolation, etc",""),
 ("Vector.h" "Template class represents a point, direction in 3D space",
 """`typedef Vector3<float>  Vector3f;`
 `typedef Vector3<double> Vector3d;`"""),

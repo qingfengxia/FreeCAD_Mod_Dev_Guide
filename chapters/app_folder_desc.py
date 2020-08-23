@@ -3,7 +3,7 @@ AppFolder=[
 ("Application",),
  ("Application.h","method called in QApplication to init and run FreeCAD",
  """Mange `App::Document`, import/export files ,Path, ParameterManager/config, init()/addTypes()
-The FreeCAD startup process will call `App::Application::initApplication()`, 
+The FreeCAD startup process will call `App::Application::initApplication()`,
 setup/init FreeCAD python module """),
  ("ApplicationPy.cpp","export method to python as FreeCAD module",
  """```import FreeCAD
@@ -18,10 +18,10 @@ init every application by `import Init.py`, call `InitApplications()`
 #
 ("Property framework",),
  ("Property.h","Base class for all Properties, derived from Base::Persistence",
- """ 
- Can access attributes of a class by name without knowing the class type, enable access in Python, parameterise 3D part,  
+ """
+ Can access attributes of a class by name without knowing the class type, enable access in Python, parameterise 3D part,
  Useful methods: get/setValue(), save/restore(), get/setPyObject(), copy/paste(), getGroup/getPath/getType/getDocumentation()
- 
+
  [PropertyContainer.cpp         PropertyFile.cpp   PropertyPythonObject.cpp
 PropertyContainer.h           PropertyFile.h     PropertyPythonObject.h
 PropertyContainerPyImp.cpp    PropertyGeo.cpp    PropertyStandard.cpp
@@ -43,12 +43,26 @@ DocumentObject is derived from this class, macro function will be explained in P
 """its path is based on ObjectIdentifier"""),
 ("PropertyPythonObject.h"," to manage Py::Object instances as properties",""""""),
 ("PropertyGeo.h"," PropertyVector, PropertyMatrix, Property",
-"""PropertyPlacementLink, 
+"""PropertyPlacementLink,
 `class AppExport PropertyGeometry : public App::Property // transformGeometry()  getBoundBox3d() `
 `class AppExport PropertyComplexGeoData : public App::PropertyGeometry`"""),
 ("Enumeration.h",  "A bidirectional stringinteger mapping for enum", ""),
+#
+("Extension framework",),
+ ("Extension.h","Extension class as base for all extension that can be added to a DocumentObject",
+ """ [DocumentObjectExtension.cpp       GeoFeatureGroupExtension.cpp  DocumentObjectExtension.h         GeoFeatureGroupExtension.h
+DocumentObjectExtensionPyImp.cpp  GeoFeatureGroupExtensionPyImp.cpp  DocumentObjectExtensionPy.xml     GeoFeatureGroupExtensionPy.xml
+ExtensionContainer.cpp            GroupExtension.cpp ExtensionContainer.h              GroupExtension.h
+ExtensionContainerPyImp.cpp       GroupExtensionPyImp.cpp  ExtensionContainerPy.xml          GroupExtensionPy.xml
+Extension.cpp        OriginGroupExtension.cpp  Extension.h                       OriginGroupExtension.h
+ExtensionPyImp.cpp      OriginGroupExtensionPyImp.cpp ExtensionPy.xml       OriginGroupExtensionPy.xml]"""),
+ ("ExtensionContainer.h","ExtensionContainer class as the manager of Extension instances",""""""),
+ ("GeoFeatureGroupExtension.h","",""""""),
+ ("GroupExtension.h","",""""""),
+ ("DocumentObjectExtension.h","",""""""),
+
  #
- ("App::Document and App::DocumentObject",),
+("App::Document and App::DocumentObject",),
  ("Document.h","Corresponding to FreeCAD main saving file format for 3D part or other info: *.FCstd",
  """[Document.cpp                    DocumentObject.h
 Document.h                      DocumentObjectPyImp.cpp
@@ -61,15 +75,13 @@ DocumentObjectGroupPyImp.cpp    DocumentPyImp.cpp
 DocumentObjectGroupPy.xml       DocumentPy.xml
 ]"""),
  ("DocumentObject.h","Most important class in FreeCAD",
- """The inheritance chain is: Base::BaseClass->Base::Persistence->Base::PropertyContainer->DocumentObject"""), 
- ("DocumentGroup.h","DocumentObjectGroup class: Container of DocumentObject",""""""),  
+ """The inheritance chain is: Base::BaseClass->Base::Persistence->Base::PropertyContainer->DocumentObject"""),
+ ("DocumentGroup.h","DocumentObjectGroup class: Container of DocumentObject",""""""),
  ("DocumentObserver.h","Minitoring the create, drop, change of DocumetnObject and emit signal",""""""),
  ("MergeDocuments.h","helper classes for document merge",""""""),
- ("Transactions.h","A collection of operation on DocumentObject like SQL database that can be rolled back",
- """DocumentObject could be restored to a previous state"""),
 ("FeaturePython.h","Generic Python feature class which allows to behave every DocumentObject derived class as Python feature  simply by subclassing",
 """
-`// Special Feature-Python classes,  Feature is another name for DocumentObject` 
+`// Special Feature-Python classes,  Feature is another name for DocumentObject`
 `typedef FeaturePythonT<DocumentObject> FeaturePython;`
 `typedef FeaturePythonT<GeoFeature> GeometryPython;`"""),
 #
@@ -80,35 +92,27 @@ DocumentObjectGroupPy.xml       DocumentPy.xml
 Expression.h        ExpressionParser.tab.h  PropertyExpressionEngine.cpp
 ExpressionParser.l  ExpressionParser.y      PropertyExpressionEngine.h] """),
 #
-("Extension framework",),
-('Extension.h', "extend function of object other than inheritance",
-""" [DocumentObjectExtension.cpp       GeoFeatureGroupExtension.cpp  DocumentObjectExtension.h         GeoFeatureGroupExtension.h
-DocumentObjectExtensionPyImp.cpp  GeoFeatureGroupExtensionPyImp.cpp  DocumentObjectExtensionPy.xml     GeoFeatureGroupExtensionPy.xml
-ExtensionContainer.cpp            GroupExtension.cpp ExtensionContainer.h              GroupExtension.h
-ExtensionContainerPyImp.cpp       GroupExtensionPyImp.cpp  ExtensionContainerPy.xml          GroupExtensionPy.xml
-Extension.cpp        OriginGroupExtension.cpp  Extension.h                       OriginGroupExtension.h
-ExtensionPyImp.cpp      OriginGroupExtensionPyImp.cpp ExtensionPy.xml       OriginGroupExtensionPy.xml]"""),
-#
-("Utilities",),
-("MeasureDistance.h","Measure distance between two entity",""""""),
-("ColorModel.h","Color bar like grayscale, inverse gray scale, Tria,",
-"""Color class is defined here, constructed from uint32_t or 4 float number for RGBA."""),
-("Material.h","appearance: color and transparency for rendering of 3D object",
-""" define a few standard material
-MaterialObject is derived from DocumentObject and contains data from Material class. 
-[Material.cpp  MaterialObject.cpp  MaterialPyImp.cpp Material.h   MaterialObject.h    MaterialPy.xml]"""),
-("MaterialObject.h","DocumentObject store key-valve pair for material information",
-"""physical property of  *.ini style FCMat files, under `src/Mod/Material/StandardMaterial/<MaterialName>.FCMat`
-`Fem::MechanicalMaterial` is python class derived from this class"""),
+("Transaction  (redo, undo) framework",),
+("Transation.h","",
+"""Transaction (redo, undo)
+[AutoTransaction.h] """),
+("TransationalObject.h","parent class for DocumentObject", """"""),
+ ("Transactions.h","A collection of operation on DocumentObject like SQL database that can be rolled back",
+ """DocumentObject could be restored to a previous state"""),
+
 #
 ("App::GeoFeature and derived classes",),
-("GeoFeature.h","Base class of all geometric document objects",
+("GeoFeature.h","Base class of all geometric document objects with Placement",
 """ Derived from `DocumentObject`, contains only *PropertyPlacement*, see [GeoFeature.cpp]
 """),
+("Part.h","persistence support of any geometry part",
+"""added in FreeCAD 0.18, `class AppExport Part : public App::GeoFeature, public App::OriginGroupExtension`
+"""),
+("Origin.h","persistence support of any geometry part",""" `class AppExport Origin : public App::DocumentObject` """),
 ("Plane.h","Object Used to define planar support for all kind of operations in the document space",
 """sketch is done on planes, derived from `App::GeoFeature` which is derived from `DocumentObject`"""),
 ("Placement.h" , "define six degree of freedom (orientation and position ) for placing a part in space",
-"""derived from `App::GeoFeature`, 
+"""derived from `App::GeoFeature`,
 A placement defines an orientation (rotation) and a position (base) in 3D space. It is used when no scaling or other distortion is needed.
 """),
 #
@@ -119,5 +123,19 @@ A placement defines an orientation (rotation) and a position (base) in 3D space.
 """
 declare `Segment`, and `ComplexGeoData`, which has ref counting, in `App::Data` namespace.
 `class AppExport ComplexGeoData: public Base::Persistence, public Base::Handled`
-""")
+"""),
+#
+("Utilities",),
+("Range.h","spread sheet cell range",""""""),
+("Path.h","persistence support of Path (a vector of point)",""""""),
+("MeasureDistance.h","Measure distance between two entity",""""""),
+("ColorModel.h","Color bar like grayscale, inverse gray scale, Tria,",
+"""Color class is defined here, constructed from uint32_t or 4 float number for RGBA."""),
+("Material.h","appearance: color and transparency for rendering of 3D object",
+""" define a few standard material
+MaterialObject is derived from DocumentObject and contains data from Material class.
+[Material.cpp  MaterialObject.cpp  MaterialPyImp.cpp Material.h   MaterialObject.h    MaterialPy.xml]"""),
+("MaterialObject.h","DocumentObject store key-valve pair for material information",
+"""physical property of  *.ini style FCMat files, under `src/Mod/Material/StandardMaterial/<MaterialName>.FCMat`
+`Fem::MechanicalMaterial` is python class derived from this class"""),
 ]
