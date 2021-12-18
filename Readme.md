@@ -17,6 +17,12 @@ download the latest version from `pdf` folder of this repo
 
 This book should be updated for the recent release, esp. after migration to Python3 + Pyside2. I plan another release for FreeCAD 0.19 dev near Xmas time.
 
+### Chinese translation(中文翻译)
+
+[FreeCAD模块开发指南 第1章 FreeCAD概述和软件架构](https://www.jianshu.com/p/68d9858d72c5)
+
+[FreeCAD模块开发指南 第2章 FreeCAD源代码结构](https://www.jianshu.com/p/29775f44cc17)
+
 ## [License of this book](http://creativecommons.org/licenses/sa/4.0/)
 
 Similar as FreeCAD document license CC-BY 3.0
