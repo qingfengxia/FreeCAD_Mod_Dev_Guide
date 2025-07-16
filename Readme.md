@@ -51,7 +51,7 @@ Add all contributors see <https://wiki.freecad.org/Contributors>
 Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 
 - [Foundamental document on official wiki for FreeCAD](https://wiki.freecad.org)
-- [FreeCAD python API document](https://api.freecad.org)
+- [FreeCAD python API document](https://freecad.github.io/SourceDoc)
 - [single file PDF user manual for quick start](http://sourceforge.net/projects/free-cad/files/FreeCAD%20Documentation/)
 
 ## Doxygen documents links

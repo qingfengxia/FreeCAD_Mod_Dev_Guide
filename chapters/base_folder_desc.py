@@ -54,7 +54,7 @@ This is not Python Console, but dealing with stdio, logging to terminal which st
 ("Axis.h","Class for Axis of coordination system",""),
 ("BoundBox.h","bounding boxes of the 3D part, define max{x,y,z} and min{x,y,z}",""),
 ("Rotation.h","define class and method for rotation an objecti n 3D space",""),
-("Placement.h" ,"class to place/relocate an object in 3D space","see official api doc: <https://api.freecad.org/Placement.html>"),
+("Placement.h" ,"class to place/relocate an object in 3D space","see official api doc: <https://freecad.github.io/SourceDoc/d7/d32/classApp_1_1Placement.html>"),
 ("DualNumber.h" "Dual Numbers are 2-part numbers like complex numbers, but different algebra",""),
 ("DualQuaternion.h" "Quaternion of Dual Numbers for placement interpolation, etc",""),
 ("Vector.h" "Template class represents a point, direction in 3D space",
