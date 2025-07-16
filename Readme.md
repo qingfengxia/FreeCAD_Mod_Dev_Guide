@@ -44,14 +44,14 @@ Original/lead developers:
 - [Werner Mayer]()
 - [yorik van havre](https://www.facebook.com/yorikvanhavre)
 
-Add all contributors see <https://www.freecadweb.org/wiki/Contributors>
+Add all contributors see <https://wiki.freecad.org/Contributors>
 
 ## Target audiences: new module developers
 
 Make sure you are familiar with FreeCAD workbench GUI and API as a user:
 
-- [Foundamental document on official wiki for FreeCAD](https://www.freecadweb.org/wiki/)
-- [FreeCAD python API document](https://www.freecadweb.org/api/)
+- [Foundamental document on official wiki for FreeCAD](https://wiki.freecad.org)
+- [FreeCAD python API document](https://api.freecad.org)
 - [single file PDF user manual for quick start](http://sourceforge.net/projects/free-cad/files/FreeCAD%20Documentation/)
 
 ## Doxygen documents links
