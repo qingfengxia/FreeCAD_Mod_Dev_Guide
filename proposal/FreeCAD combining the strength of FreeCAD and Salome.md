@@ -41,7 +41,7 @@ The processing of FreeCAD modeling -> Salome Meshing -> OpenFome Solver -> Parav
 FreeCAD could be embedded into Salome as "Paraview", since they are all based on Qt. While it is out of my scope of knowledge,  Embedded python
 
 
-[Example of Embedding a FreeCAD Python Module into Blender](https://www.freecadweb.org/wiki/Embedding_FreeCAD)
+[Example of Embedding a FreeCAD Python Module into Blender](https://wiki.freecad.org/Embedding_FreeCAD)
 
 Even if, a 'contract' still needed to be defined for at least single direction information transfer (CAD model + `namedSelection`) to meshing tools, the meshing tool will never modify topology, e.g. beam thickness change in CAD model will not invalidate meshing rules and CAE solver setup, just updating internal cell position by meshing tool.
 
@@ -55,7 +55,7 @@ Note More CFD open source tools can be found at [cfdonline](http://www.cfd-onlin
 
 ### Exporting Model and Extra Information
 
-If embed attribute into STEP is hard, a bundle of XML + STEP could be used. See FreeCAD forum discussion of [Managing shapes names with STEP import/export](https://forum.freecadweb.org/viewtopic.php?t=3972)
+If embed attribute into STEP is hard, a bundle of XML + STEP could be used. See FreeCAD forum discussion of [Managing shapes names with STEP import/export](https://forum.freecad.org/viewtopic.php?t=3972)
 
 A simple solution will be: Salome requests a geometry be modeled and saved with pre-determined file name and folder location. It signals the finished event (instead of closing the CAD software which is time consuming to spin up again). If no good and portable IPC is available, the `FileSystemWatcher` polling by Salome (caller) would be enough.
 

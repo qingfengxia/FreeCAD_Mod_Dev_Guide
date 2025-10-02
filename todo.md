@@ -6,7 +6,7 @@ If any issue spotted, you can post an issue on github to let me know.
 
 ## new features in App, Gui, Part, Fem
 
-<https://www.freecadweb.org/wiki/Release_notes_0.18>
+<https://wiki.freecad.org/Release_notes_0.18>
 
 - [ ] expression engine to calc a value (App module), 
 - [ ] extension (multiple-inheritance in App module), 
@@ -14,7 +14,7 @@ If any issue spotted, you can post an issue on github to let me know.
 - [ ] material card (FEM module)
 - [ ] Elmer solver (FEM module)
 
-<https://www.freecadweb.org/wiki/Release_notes_0.19>
+<https://wiki.freecad.org/Release_notes_0.19>
 
 - [ ] `App::Link`  a  `App::DocumentObject` with certain properties helping assemblies.
 
